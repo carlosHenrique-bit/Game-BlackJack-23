@@ -11,11 +11,13 @@ let jogadorDois = {
   pontos: 0,
 };
 
-let turnos = 1;
+let turnos = 0;
+//let finalizarTurno = document.getElementById("finalizarTurno");
 // Jogadores Fim
 
 // Baralho
-const baralho = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let mesa = [];
+let baralhoComun = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let zap = 0;
 let coringa = 0;
 let bomba = 0;
@@ -45,8 +47,13 @@ let cartaComun = 0;
 // Baralho Fim
 
 // Mecanica do jogo
+
+function addCartasMesa() {
+  mesa += baralhoComun[Math.floor(Math.random() * baralhoComun.length)];
+  console.log(`Mesa: ${mesa}`);
+}
+
 function turnoUm() {
-  let baralhoComun = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   if (turnos == 1) {
     jogadorUm.maoJogadorUm = [
       baralhoComun[Math.floor(Math.random() * baralhoComun.length)],
@@ -56,29 +63,35 @@ function turnoUm() {
       baralhoComun[Math.floor(Math.random() * baralhoComun.length)],
       baralhoEfeito[Math.floor(Math.random() * baralhoEfeito.length)],
     ];
-    turnos++;
+    console.log(`Jogador Um: ${jogadorUm.maoJogadorUm[0]}`);
+    console.log(`Jogador Um: ${jogadorUm.maoJogadorUm[1]}`);
+    console.log(`Jogador Dois: ${jogadorDois.maoJogadorDois[0]}`);
+    console.log(`Jogador Dois: ${jogadorDois.maoJogadorDois[1]}`);
   }
 }
 
-/*
-  Criar um Botão, que funcione como um contador, para que cada jogador click quando terminar a jogada
-  quando o contador for 2 execute a função para aumentar o numero de turnos, distribuir as cartasComuns na mesa
-  e nas mão dos jogadores.
-  
 function distribuirCartas() {
-  if (finalizarVez == 2) {
-    for (let i = 1; i < turnos; i++) {
-      turnos++;
-      cartaComun = [Math.floor(Math.random() * baralhoComun.length)];
-      jogadorUm.maoJogadorUm = [Math.floor(Math.random() * baralhoFull.length)];
-      jogadorDois.maoJogadorDois = [
-        Math.floor(Math.random() * baralhoFull.length),
-      ];
-    }
+  jogadorUm.maoJogadorUm += [
+    baralhoFull[Math.floor(Math.random() * baralhoFull.length)],
+  ];
+
+  jogadorDois.maoJogadorDois += [
+    baralhoFull[Math.floor(Math.random() * baralhoFull.length)],
+  ];
+  console.log(`Jogador Um: ${jogadorUm.maoJogadorUm}`);
+  console.log(`Jogador Dois: ${jogadorDois.maoJogadorDois}`);
+}
+
+function atualizarTurno() {
+  turnos++;
+  console.log(`Turno: ${turnos}`);
+  turnoUm();
+  addCartasMesa();
+  if (turnos > 1) {
+    distribuirCartas();
   }
 }
-setInterval(distribuirCartas(), 1000);
-*/
+
 function pontuacao() {
   if (jogadorUm.pontos == 23 && jogadorDois.pontos == 23) {
     return console.log("Empate");
@@ -89,4 +102,15 @@ function pontuacao() {
   }
 }
 setInterval(pontuacao(), 1000);
+
+function somarPontosJogadorUm() {
+  let j = 1;
+  for (let i = 0; i < jogadorUm.maoJogadorUm.length; i++) {
+    jogadorUm.pontos = jogadorUm.maoJogadorUm[i] + jogadorUm.maoJogadorUm[j];
+    j++;
+  }
+  console.log(jogadorUm.pontos);
+  console.log(jogadorDois.pontos);
+}
+
 // Mecanica do jogo Fim
