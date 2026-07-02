@@ -16,23 +16,31 @@
                 <p class="title">Turno</p>
                 <p class="num">1</p>
             </div>
-            <div id="pontuacaoJogadorUm">
-                <p class="title">jogador um</p>
-                <p class="num">0</p>
-            </div>
-            <div id="pontuacaoJogadorDois">
-                <p class="title">jogador dois</p>
-                <p class="num">0</p>
+            <div class="pontuacao-jogadores">
+                <div id="pontuacaoJogadorUm">
+                    <p class="title">jogador um</p>
+                    <p class="num">0</p>
+                </div>
+                <div id="pontuacaoJogadorDois">
+                    <p class="title">jogador dois</p>
+                    <p class="num">0</p>
+                </div>
             </div>
         </div>
 
-        <div class="maoJogadorUm"></div>
+        <div class="maoJogadorUm">
+            <div class="cartaUm"><img src="./assets/algemas.jfif" alt=""></div>
+            <div class="cartaDois"><img src="./assets/Carta10.jfif" alt=""></div>
+        </div>
 
         <section class="cartasComun">
             <div id="image-card"></div>
         </section>
 
-        <div class="maoJogadorDois"></div>
+        <div class="maoJogadorDois">
+            <div class="cartaUm"><img src="./assets/Carta2.jfif" alt=""></div>
+            <div class="cartaDois"><img src="./assets/As.jfif" alt=""></div>
+        </div>
 
         <button id="finalizarTurno" onclick="atualizarTurno(), somarPontosJogadorUm()">Finalizar Turno</button>
     </main>

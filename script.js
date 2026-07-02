@@ -16,8 +16,8 @@ let turnos = 0;
 // Jogadores Fim
 
 // Baralho
-let mesa = [];
-let baralhoComun = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let mesa = document.querySelector(".cartasComun");
+let baralhoComun = ["./assets/As.jfif"];
 let zap = 0;
 let coringa = 0;
 let bomba = 0;
@@ -49,8 +49,13 @@ let cartaComun = 0;
 // Mecanica do jogo
 
 function addCartasMesa() {
-  mesa += baralhoComun[Math.floor(Math.random() * baralhoComun.length)];
-  console.log(`Mesa: ${mesa}`);
+  let tagImagem = document.createElement("img");
+  tagImagem.style.width = "80px";
+  tagImagem.style.height = "120px";
+  if (turnos > 0) {
+    tagImagem.src = baralhoComun[0];
+    mesa.appendChild(tagImagem);
+  }
 }
 
 function turnoUm() {

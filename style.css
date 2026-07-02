@@ -16,9 +16,26 @@ body {
     rgba(156, 7, 32, 1) 100%
   );
 }
+
+#turnos {
+  background-color: #555252;
+  /* position: absolute;
+  left: 60vw;
+  top: 83vh; */
+  width: 110px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+}
+
 .pontuacao-pai {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 30px 0 30px;
   align-items: center;
   margin-top: 20px;
 }
@@ -27,11 +44,14 @@ body {
   display: flex;
   justify-content: right;
   align-items: center;
-  gap: 150px;
+  gap: 50px;
 }
 
 #pontuacaoJogadorUm {
   background-color: #313030;
+  /* position: absolute;
+  left: 60vw;
+  top: 83vh; */
   width: 110px;
   height: 50px;
   display: flex;
@@ -44,6 +64,9 @@ body {
 
 #pontuacaoJogadorDois {
   background-color: #313030;
+  /* position: absolute;
+  left: 60vw;
+  top: 5vh; */
   width: 110px;
   height: 50px;
   display: flex;
@@ -55,9 +78,48 @@ body {
 }
 
 .maoJogadorUm {
-  width: 100px;
-  height: 100px;
-  background: aquamarine;
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  left: 43vw;
+  bottom: 1vh;
+}
+
+.cartaUm {
+  transform: rotate(-5deg);
+}
+
+.cartaDois {
+  transform: rotate(5deg);
+}
+
+.maoJogadorDois {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  left: 43vw;
+  top: 1vh;
+}
+
+.cartaUm {
+  transform: rotate(-5deg);
+}
+
+.cartaDois {
+  transform: rotate(5deg);
+}
+
+img {
+  width: 80px;
+  height: 120px;
+  border: 3px solid #000;
+}
+
+.cartasComun {
+  position: absolute;
+  left: 45vw;
+  bottom: 45vh;
+  transform: rotate(13deg);
 }
 
 #finalizarTurno {
